@@ -23,6 +23,7 @@ export async function register(request: FastifyRequest, reply: FastifyReply) {
       reply.code(409).send({ message: err.message })
     }
 
+    // @ts-ignore
     reply.code(500).send({ message: err.message }) // TODO: handle other errors
   }
 
