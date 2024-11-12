@@ -2,7 +2,6 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { InMemoryGymsRepository } from '@/repositories/in-memory/in-memory-gyms-repository'
 import { CreateGymUseCase } from '@/use-cases/create-gym'
 import { Decimal } from '@prisma/client/runtime/library'
-import { Gym } from '@prisma/client'
 
 let gymsRepository: InMemoryGymsRepository
 let sut: CreateGymUseCase
