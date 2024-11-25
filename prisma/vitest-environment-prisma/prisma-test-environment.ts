@@ -4,7 +4,6 @@ import { Environment } from 'vitest'
 import { randomUUID } from 'node:crypto'
 import { execSync } from 'node:child_process'
 import { prisma } from '@/lib/prisma'
-import { Schema } from 'zod'
 
 function generateDatabaseURL(schema: string) {
   if (!process.env.DATABASE_URL) {
@@ -25,9 +24,7 @@ export default <Environment>(<unknown>{
     return {
       async teardown() {
         const schema = randomUUID()
-        const databaseURL = generateDatabaseURL(schema)
-
-        process.env.DATABASE_URL = databaseURL
+        process.env.DATABASE_URL = generateDatabaseURL(schema)
 
         execSync('npx prisma migrate deploy')
 
