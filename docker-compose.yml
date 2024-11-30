@@ -1,13 +1,11 @@
-# docker run -e POSTGRESQL_USERNAME=docker -e POSTGRESQL_PASSWORD=docker -e POSTGRESQL_DATABASE=gympasssolidapi -p 5432:5432 bitnami/postgresql
-
 version: '3'
 
 services:
-    gympass-solid-api:
-        image: bitnami/postgresql
-        ports:
-            - 5432:5432
-        environment:
-            - POSTGRESQL_USERNAME=docker
-            - POSTGRESQL_PASSWORD=docker
-            - POSTGRESQL_DATABASE=gympasssolidapi
+  api-pg:
+    image: bitnami/postgresql
+    ports:
+      - 5432:5432
+    environment:
+        - POSTGRESQL_USERNAME=${POSTGRESQL_USERNAME}
+        - POSTGRESQL_PASSWORD=${POSTGRESQL_PASSWORD}
+        - POSTGRESQL_DATABASE=${POSTGRESQL_DATABASE}
